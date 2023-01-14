@@ -113,7 +113,7 @@ Figure 5. Learning performance on the OCT dataset with IID and non-IID settings.
 ```
 code/
 	├── Chest_XRay/
-		├── pre_processs_chest_xray_dataset.py
+		├── pre_process_chest_xray_dataset.py
         ├── IID/
         	├── chest_xray_iid_data_processing.py
         	├── CL_chest_xray_iid.py
@@ -127,7 +127,7 @@ code/
         	├── SSL_chest_xray_non_iid.py
         	└──  FSL_chest_xray_non_iid.py
 	└── OCT/
-        ├── pre_processs_OCT_dataset.py
+        ├── pre_process_OCT_dataset.py
         ├── IID/
         	├── OCT_iid_data_processing.py
         	├── CL_OCT_iid.py
