@@ -141,8 +141,20 @@ code/
         	├── SSL_OCT_non_iid.py
         	└── FSL_OCT_non_iid.py
 simulation_results/
-	├── performance_on_the_chest_xray_dataset
-	└── performance_on_the_OCT_dataset
+	├── performance_on_the_chest_xray_dataset/
+		├── draw_chest_xray_accuracy/
+			├── draw_chest_xray_accuracy_iid.m
+        	└── draw_chest_xray_accuracy_non_iid.m
+        └── draw_chest_xray_loss/
+        	├── draw_chest_xray_loss_iid.m
+        	└── draw_chest_xray_loss_non_iid.m
+	└── performance_on_the_OCT_dataset/
+		├── draw_OCT_accuracy/
+			├── draw_OCT_accuracy_iid.m
+        	└── draw_OCT_accuracy_non_iid.m
+        └── draw_OCT_loss/
+        	├── draw_OCT_loss_iid.m
+        	└── draw_OCT_loss_non_iid.m
 ```
 
 ### 6. Citation
