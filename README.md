@@ -114,47 +114,47 @@ Figure 5. Learning performance on the OCT dataset with IID and non-IID settings.
 code/
 	├── Chest_XRay/
 		├── pre_process_chest_xray_dataset.py
-        ├── IID/
-        	├── chest_xray_iid_data_processing.py
-        	├── CL_chest_xray_iid.py
-        	├── FL_chest_xray_iid.py
-        	├── SSL_chest_xray_iid.py
-        	└── FSL_chest_xray_iid.py
-        └── Non-IID/
-        	├── chest_xray_non_iid_data_processing.py
-        	├── CL_chest_xray_non_iid.py
-        	├── FL_chest_xray_non_iid.py
-        	├── SSL_chest_xray_non_iid.py
-        	└──  FSL_chest_xray_non_iid.py
+		├── IID/
+			├── chest_xray_iid_data_processing.py
+			├── CL_chest_xray_iid.py
+			├── FL_chest_xray_iid.py
+			├── SSL_chest_xray_iid.py
+			└── FSL_chest_xray_iid.py
+		└── Non-IID/
+			├── chest_xray_non_iid_data_processing.py
+			├── CL_chest_xray_non_iid.py
+			├── FL_chest_xray_non_iid.py
+			├── SSL_chest_xray_non_iid.py
+			└──  FSL_chest_xray_non_iid.py
 	└── OCT/
-        ├── pre_process_OCT_dataset.py
-        ├── IID/
-        	├── OCT_iid_data_processing.py
-        	├── CL_OCT_iid.py
-        	├── FL_OCT_iid.py
-        	├── SSL_OCT_iid.py
-        	└── FSL_OCT_iid.py
-        └── Non-IID/
-        	├── OCT_non_iid_data_processing.py
-        	├── CL_OCT_non_iid.py
-        	├── FL_OCT_non_iid.py
-        	├── SSL_OCT_non_iid.py
-        	└── FSL_OCT_non_iid.py
+		├── pre_process_OCT_dataset.py
+		├── IID/
+			├── OCT_iid_data_processing.py
+			├── CL_OCT_iid.py
+			├── FL_OCT_iid.py
+			├── SSL_OCT_iid.py
+			└── FSL_OCT_iid.py
+		└── Non-IID/
+			├── OCT_non_iid_data_processing.py
+			├── CL_OCT_non_iid.py
+			├── FL_OCT_non_iid.py
+			├── SSL_OCT_non_iid.py
+			└── FSL_OCT_non_iid.py
 simulation_results/
 	├── performance_on_the_chest_xray_dataset/
 		├── draw_chest_xray_accuracy/
 			├── draw_chest_xray_accuracy_iid.m
-        	└── draw_chest_xray_accuracy_non_iid.m
-        └── draw_chest_xray_loss/
-        	├── draw_chest_xray_loss_iid.m
-        	└── draw_chest_xray_loss_non_iid.m
+        		└── draw_chest_xray_accuracy_non_iid.m
+		└── draw_chest_xray_loss/
+			├── draw_chest_xray_loss_iid.m
+			└── draw_chest_xray_loss_non_iid.m
 	└── performance_on_the_OCT_dataset/
 		├── draw_OCT_accuracy/
 			├── draw_OCT_accuracy_iid.m
-        	└── draw_OCT_accuracy_non_iid.m
-        └── draw_OCT_loss/
-        	├── draw_OCT_loss_iid.m
-        	└── draw_OCT_loss_non_iid.m
+        		└── draw_OCT_accuracy_non_iid.m
+		└── draw_OCT_loss/
+			├── draw_OCT_loss_iid.m
+			└── draw_OCT_loss_non_iid.m
 ```
 
 ### 6. Citation
