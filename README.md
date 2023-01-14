@@ -125,7 +125,7 @@ code/
 			├── CL_chest_xray_non_iid.py
 			├── FL_chest_xray_non_iid.py
 			├── SSL_chest_xray_non_iid.py
-			└──  FSL_chest_xray_non_iid.py
+			└── FSL_chest_xray_non_iid.py
 	└── OCT/
 		├── pre_process_OCT_dataset.py
 		├── IID/
