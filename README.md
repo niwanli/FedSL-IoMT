@@ -156,17 +156,3 @@ simulation_results/
 			├── draw_OCT_loss_iid.m
 			└── draw_OCT_loss_non_iid.m
 ```
-
-### 6. Citation
-
-```
-@inproceedings{Ni2023FedSL,
-    author = {Ni, Wanli and Ao, Huiqing and Tian, Hui and Eldar, Yonina C and Niyato, Dusit},
-    title = {FedSL: Federated Split Learning for Collaborative Healthcare Analytics on Resource-Constrained Wearable IoMT Devices},
-    journal = {Proc. IEEE INFOCOM Poster},
-    address = {New York, USA},
-    year = {2023},
-    month = {May},
-    note = {under review}
-}
-```
