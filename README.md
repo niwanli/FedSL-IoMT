@@ -51,9 +51,49 @@ In this work, we propose a federated split learning (FedSL) framework to achieve
 
 Figure 2. An illustration of the proposed FedSL framework.
 
-In Figure 3, we illustrate the computation and communication processes of the proposed FedSL framework. Specifically, each training round of the proposed FedSL has two main stages: 1) multi-user split learning, and 2) federated sub-network averaging. In different stages, the data shared between devices and the server are different. In the first stage, devices share the ground-truth label and the smashed data with the server to complete the forward propagation. In addition, the server will transfer the gradients to local devices to complete the backward propagation. In the second stage, devices will share the sub-network parameters with the server to synchronize model parameters.![FedSL](img/FedSL_timeline.png)
+In Figure 3, we illustrate the computation and communication processes of the proposed FedSL framework. Specifically, each training round of the proposed FedSL has two main stages: 1) multi-user split learning, and 2) federated sub-network averaging. In different stages, the data shared between devices and the server are different. In the first stage, devices share the ground-truth label and the smashed data with the server to complete the forward propagation. In addition, the server will transfer the gradients to local devices to complete the backward propagation. In the second stage, devices will share the sub-network parameters with the server to synchronize model parameters.
+
+![FedSL](img/FedSL_timeline.png)
 
 Figure 3. One training round of the proposed FedSL framework.
+
+#### 2.1 Parallel Model Training of FedSL
+As outlined in Fig. 4, FedSL allows multiple IoMT devices to train a shared model in parallel. The edge server starts by sending the device-side model to all the devices. Each device processes its data using this model and sends key information back to the server. The server updates its model based on this data and sends gradients back to all devices to help them improve their local models. This process continues until the model achieves the desired accuracy.
+
+![FSL_Parallel](img/FSL_Parallel.png)
+
+Figure 4. The parallel model training scheme in the FedSL framework.
+
+#### 2.2 Sequential Model Training of FedSL
+As shown in Fig. 5, in the sequential FedSL model training process, each device trains independently with the edge server. The process for individual devices is similar to the parallel FedSL approach, but without model aggregation after each update. New devices that join the training later build upon the knowledge gained by earlier participants. Once the last device completes training, one round is complete. This sequential approach offers flexibility in terms of training execution and allows for dynamic participation of devices in the training process.
+
+![FSL_Sequential](img/FSL_Sequential.png)
+
+Figure 5. The sequential model training scheme in the FedSL framework.
+
+#### 2.3 Comparison among SL, FL, and FedSL
+
+In Table 1, we compare the communication overhead per client and total communication overhead across all clients in IoT networks. Assume $K$ be the number of clients, $W$ be the size of the whole model, $p$ be the total dataset size, $q$ be the size of the smashed data, $\eta$ be the fraction of model's size with client in SL, and $1-\eta$ be the fraction of model's size with server. 
+
+| Scheme | Training approach | Communication overhead per client | Total communication overhead |
+| ------------ | ----------------------------- | ------------------ | ------------------ |
+| `SL` | Sequential     | $2pq/K + 2 \eta W$     | $2pq + 2 \eta W K$ |
+| `FL` | Parallel       | $2W$     | $2 W K$ |
+| `FedSL` | Parallel or sequential | $2pq/K + 2 \eta W$     | $2pq + 2 \eta W K$ |
+
+Table 1. Comparison of communication overhead among SL, FL, and FedSL.
+
+In Table 1 and Table 2, we present a comprehensive comparison among SL, FL, and the proposed FedSL. These two tables highlights the key features and advantages of each approach.
+
+| Scheme | # of users | Model aggregation | Applicable to low-end devices | Distributed Computing | Sharing raw data |
+| ------------ | ----------------------------- | ------------------ | ------------------ | ------------------ | ------------------ |
+| `SL` | One  | No | Yes | Yes | No |
+| `FL` | Multiple | Yes  | No | Yes | No |
+| `FedSL` | Multiple | Yes  | Yes | Yes | No |
+
+Table 2. A comprehensive comparison among SL, FL, and FedSL.
+
+Taking ResNet-18 as an example, if we divide the model at the third layer, it requires around 28.85M floating point operations for local computation in one training round. Considering that most wearables can handle up to 1.2G floating point operations per second, our proposed FedSL can leverage the computing power of the edge server to effectively support medical image analysis on resource-constrained IoMT devices.
 
 ### 3. Experimental Results and Discussions
 
@@ -107,6 +147,10 @@ Figure 5. Learning performance on the OCT dataset with IID and non-IID settings.
 [4] D. S. Kermany, M. Goldbaum et al., “Identifying medical diagnoses and treatable diseases by image-based deep learning,” Cell, vol. 172, no. 5, pp. 1122–1131.e9, Feb. 2018.
 
 [5] T. Gafni, N. Shlezinger et al., “Federated learning: A signal processing perspective,” IEEE Signal Process. Mag., vol. 39, no. 3, pp. 14–41, May 2022.
+
+[6] L. You et al., “A triple-step asynchronous federated learning mechanism for client activation, interaction optimization, and aggregation enhancement,” IEEE Internet of Things J., vol. 9, no. 23, pp. 24199-24211, Dec. 2022.
+
+[7] C. Thapa et~al., “SplitFed: When federated learning meets split learning,” in Proc. AAAI, Feb. 2022, pp. 8485-8493.
 
 ### 5. Directory Structure
 
