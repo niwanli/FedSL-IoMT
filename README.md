@@ -47,27 +47,27 @@ During the training process of SL, the above forward and backward propagation wi
 
 In this work, we propose a federated split learning (FedSL) framework to achieve distributed machine learning on multiple resource-constrained devices, as shown in Figure 2. On the device side, each client is responsible for training a small shallow neural network. However, the edge server not only needs to undertake the computing task of the high-level subnetwork, but also needs to aggregate and synchronize these low-level sub-networks. 
 
-![FedSL](img/FedSL_framework.png)
+![FedSL_Framework](img/FedSL_framework.png)
 
 Figure 2. An illustration of the proposed FedSL framework.
 
 In Figure 3, we illustrate the computation and communication processes of the proposed FedSL framework. Specifically, each training round of the proposed FedSL has two main stages: 1) multi-user split learning, and 2) federated sub-network averaging. In different stages, the data shared between devices and the server are different. In the first stage, devices share the ground-truth label and the smashed data with the server to complete the forward propagation. In addition, the server will transfer the gradients to local devices to complete the backward propagation. In the second stage, devices will share the sub-network parameters with the server to synchronize model parameters.
 
-![FedSL](img/FedSL_timeline.png)
+![FedSL_Timeline](img/FedSL_timeline.png)
 
 Figure 3. One training round of the proposed FedSL framework.
 
 #### 2.1 Parallel Model Training of FedSL
 As outlined in Fig. 4, FedSL allows multiple IoMT devices to train a shared model in parallel. The edge server starts by sending the device-side model to all the devices. Each device processes its data using this model and sends key information back to the server. The server updates its model based on this data and sends gradients back to all devices to help them improve their local models. This process continues until the model achieves the desired accuracy.
 
-![FSL_Parallel](img/FSL_Parallel.png)
+![FedSL_Parallel](img/FSL_Parallel.png)
 
 Figure 4. The parallel model training scheme in the FedSL framework.
 
 #### 2.2 Sequential Model Training of FedSL
 As shown in Fig. 5, in the sequential FedSL model training process, each device trains independently with the edge server. The process for individual devices is similar to the parallel FedSL approach, but without model aggregation after each update. New devices that join the training later build upon the knowledge gained by earlier participants. Once the last device completes training, one round is complete. This sequential approach offers flexibility in terms of training execution and allows for dynamic participation of devices in the training process.
 
-![FSL_Sequential](img/FSL_Sequential.png)
+![FedSL_Sequential](img/FSL_Sequential.png)
 
 Figure 5. The sequential model training scheme in the FedSL framework.
 
@@ -150,7 +150,7 @@ Figure 5. Learning performance on the OCT dataset with IID and non-IID settings.
 
 [6] L. You et al., “A triple-step asynchronous federated learning mechanism for client activation, interaction optimization, and aggregation enhancement,” IEEE Internet of Things J., vol. 9, no. 23, pp. 24199-24211, Dec. 2022.
 
-[7] C. Thapa et~al., “SplitFed: When federated learning meets split learning,” in Proc. AAAI, Feb. 2022, pp. 8485-8493.
+[7] C. Thapa et al., “SplitFed: When federated learning meets split learning,” in Proc. AAAI, Feb. 2022, pp. 8485-8493.
 
 ### 5. Directory Structure
 
